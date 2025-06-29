@@ -10,7 +10,7 @@ def register():
     # 📧 Email format tekshirish
     while True:
         email = input("📧 Email: ")
-        if re.match(r"^[\w\.-]+@[\w\.-]+\.\w+$", email):
+        if re.match(r"^[\w\.-]+@[\w\.-]+\.\w{2,}$", email):
             break
         else:
             print("❌ Email noto‘g‘ri formatda! Masalan: user@example.com")

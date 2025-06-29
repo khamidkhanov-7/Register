@@ -7,12 +7,17 @@ ADMIN_PASSWORD = "admin123"
 def admin_panel():
     print("\n🔐 Admin panelga kirish")
 
-    username = input("👤 Admin username: ")
-    password = input("🔑 Admin parol: ")
+    for urinish in range(3):
+        username = input("👤 Admin username: ")
+        password = input("🔑 Admin parol: ")
 
-    if username != ADMIN_USERNAME or password != ADMIN_PASSWORD:
-        print("❌ Admin ma'lumotlari noto‘g‘ri!")
-        return
+        if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+            break
+        else:
+            print("❌ Admin ma'lumotlari noto‘g‘ri!")
+            if urinish == 2:
+                print("🔒 3 marta noto‘g‘ri urinish! Qayta urinib ko‘ring.\n")
+                return
 
     while True:
         print("\n--- ADMIN PANEL ---")

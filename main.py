@@ -8,19 +8,16 @@ def menu():
         print("\n📋 MENYU:")
         print("1. 📝 Ro‘yxatdan o‘tish")
         print("2. 🔐 Tizimga kirish")
-        print("3. 🗑️ Foydalanuvchini o‘chirish")
-        print("4. 🛠️ Admin panel")
+        print("3. 🛠️ Admin panel")
         print("0. 🚪 Chiqish")
 
-        tanlov = input("Tanlang (1/2/3/4/0): ")
+        tanlov = input("Tanlang (1/2/3/0): ")
 
         if tanlov == "1":
             register()
         elif tanlov == "2":
             login()
         elif tanlov == "3":
-            delete_user()
-        elif tanlov == "4":
             admin_panel()
         elif tanlov == "0":
             print("👋 Dasturdan chiqildi.")
