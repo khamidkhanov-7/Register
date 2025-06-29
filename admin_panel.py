@@ -23,7 +23,7 @@ def admin_panel():
         print("\n--- ADMIN PANEL ---")
         print("1. 👥 Barcha foydalanuvchilarni ko‘rish")
         print("2. 🗑️ Foydalanuvchini o‘chirish")
-        print("3. 🔒 Foydalanuvchi parolini yangilash")
+        print("3. ✏️ Foydalanuvchi ma'lumotlarini yangilash")
         print("0. 🚪 Chiqish")
 
         tanlov = input("Tanlang (1/2/3/0): ")
@@ -46,14 +46,39 @@ def admin_panel():
                 print("❌ Foydalanuvchi topilmadi!")
 
         elif tanlov == "3":
-            uname = input("🔁 Paroli yangilanadigan username: ")
+            uname = input("✏️ Ma'lumotlari o‘zgartiriladigan username: ")
             for user in users:
                 if user['username'] == uname:
-                    new_pass = input("🆕 Yangi parol: ")
-                    user['password'] = new_pass
-                    with open("userr.py", "w") as f:
-                        f.write(f"users = {json.dumps(users, indent=4)}")
-                    print("✅ Parol yangilandi!")
+                    while True:
+                        print("\n--- Qaysi ma'lumotni o‘zgartirasiz? ---")
+                        print("1. 🧑‍💻 Username")
+                        print("2. 📧 Email")
+                        print("3. 📱 Telefon raqami")
+                        print("4. 🔒 Parol")
+                        print("5. 🔙 Ortga")
+
+                        sub_choice = input("Tanlang (1/2/3/4/5): ")
+
+                        if sub_choice == "1":
+                            user['username'] = input("🆕 Yangi username: ")
+                            print("✅ Username yangilandi!")
+                        elif sub_choice == "2":
+                            user['email'] = input("🆕 Yangi email: ")
+                            print("✅ Email yangilandi!")
+                        elif sub_choice == "3":
+                            user['phone'] = input("🆕 Yangi telefon raqam: ")
+                            print("✅ Telefon yangilandi!")
+                        elif sub_choice == "4":
+                            user['password'] = input("🆕 Yangi parol: ")
+                            print("✅ Parol yangilandi!")
+                        elif sub_choice == "5":
+                            break
+                        else:
+                            print("❗ Noto‘g‘ri tanlov!")
+
+                        # Faylni har o‘zgarishda yangilaymiz
+                        with open("userr.py", "w") as f:
+                            f.write(f"users = {json.dumps(users, indent=4)}")
                     break
             else:
                 print("❌ Foydalanuvchi topilmadi!")
