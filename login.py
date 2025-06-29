@@ -2,13 +2,12 @@ from userr import users
 
 def login():
     print("\n🔐 Tizimga kirish")
-
     username = input("👤 Username: ")
-    password = input("🔑 Parol: ")  # bu yerda parol ko‘rinadi
+    password = input("🔑 Parol: ")
 
     for user in users:
         if user['username'] == username:
-            if user['password'] == "********":
+            if user['password'] == password:
                 print(f"✅ Xush kelibsiz, {username}!\n")
                 return
             else:

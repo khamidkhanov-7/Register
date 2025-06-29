@@ -1,8 +1,8 @@
 users = [
     {
         "username": "khamidkhanov",
-        "email": "khamidkanov.7@gmail.com",
-        "phone": "946669231",
-        "password": "********"
+        "email": "khamidkhanov.7@gmail.com",
+        "phone": "+998946669231",
+        "password": "123456788"
     }
 ]
