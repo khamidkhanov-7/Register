@@ -1,18 +1,18 @@
-from models import User
-from db import session
-from passlib.hash import bcrypt
+from userr import users
 
 def login():
+    print("\n🔐 Tizimga kirish")
+
     username = input("👤 Username: ")
-    password = input("🔒 Parol: ")
+    password = input("🔑 Parol: ")  # bu yerda parol ko‘rinadi
 
-    user = session.query(User).filter_by(username=username).first()
+    for user in users:
+        if user['username'] == username:
+            if user['password'] == "********":
+                print(f"✅ Xush kelibsiz, {username}!\n")
+                return
+            else:
+                print("❌ Parol noto‘g‘ri!\n")
+                return
 
-    if not user:
-        print("❌ Bunday foydalanuvchi topilmadi.")
-        return
-
-    if bcrypt.verify(password, user.password):
-        print(f"✅ Xush kelibsiz, {user.username}!")
-    else:
-        print("❌ Noto‘g‘ri parol.")
+    print("❌ Bunday foydalanuvchi topilmadi.\n")
